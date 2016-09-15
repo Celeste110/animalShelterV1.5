@@ -1,0 +1,115 @@
+/*--------------------------------------------------------*/
+/*Remember->Tags have different default formatting. Keep this in mind.*/
+
+html {
+    font-family: Arial;
+}
+
+select {
+    line-height: 30%;
+    margin-right: 1%;
+    width: 15%;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+header, div {
+    margin-left: 25%;
+}
+
+h1 {
+    font-size: xx-large;
+    margin: 0;
+}
+
+h2 {
+    font-size: 150%;
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    line-height: 10px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    margin-right: 1%;
+    padding: 5px;
+}
+
+/* . is for class, # is for id, * is for all elements!*/
+
+p {
+    padding: 0;
+    margin: 0;
+
+}
+
+div #nav {
+    font-size: xx-large;
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    line-space: 1px;
+    padding: 0;
+    margin: 0;
+}
+
+.row {
+    width: 700px;
+    padding: 10px 10px 10px 0;
+    overflow: hidden;
+
+}
+
+menu {
+    padding: 0;
+    margin: 0 0 0 25%;
+
+}
+
+h4 {
+    padding: 6px 0 2px 0;
+    margin: 0;
+    font-size: 80%;
+}
+
+.content img {
+    margin-right: 15px;
+    float: left;
+}
+
+.two_columns {
+    padding: 2px 0 1em 0;
+    margin: 0;
+    font-size: 110%;
+}
+
+img {
+    max-height: 250px;
+    max-width: 250px;
+}
+
+a {
+    white-space: pre;
+}
+
+/**{*/
+/*border: 1px dashed #ff0000;*/
+/*}*/
+
+button {
+    width: 60px;
+    height: 25px;
+    box-shadow: 3px 3px 3px black;
+}
+
+
+
+
+
