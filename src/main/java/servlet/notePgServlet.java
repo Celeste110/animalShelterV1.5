@@ -5,7 +5,6 @@ import entity.AnimalNotes;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -59,7 +58,7 @@ public class notePgServlet extends AbstractServlet {
 
             // save the widget
             service.modifyAnimal(animal);
-            
+
             resp.sendRedirect("/note?id=" + id);
         } catch (SQLException e) {
             e.printStackTrace();

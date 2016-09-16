@@ -37,7 +37,8 @@
                 <option value = "<%= type.getAnimal_type_id()%>" <%= request.getAttribute("animal_type_id") != null && type.getAnimal_type_id() == (int)request.getAttribute("animal_type_id") ? "selected='true'" : ""%>>
                     <%= type.getSpecies()%>
                 </option>
-            <%} %>
+            <%}
+            %>
     </select>
 
     <input type= "text" name="id" id="id" value="${id}" placeholder="Id">
