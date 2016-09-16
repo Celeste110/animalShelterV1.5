@@ -1,6 +1,5 @@
 package service;
 
-import apple.laf.JRSUIConstants;
 import entity.Animal;
 import entity.AnimalNotes;
 import repository.AnimalRepository;
@@ -9,7 +8,6 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by katherine_celeste on 8/16/16.
