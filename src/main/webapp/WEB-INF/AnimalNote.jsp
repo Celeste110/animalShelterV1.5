@@ -1,4 +1,5 @@
-<%--
+<%@ page import="entity.Animal" %>
+<%@ page import="entity.AnimalNotes" %><%--
   Created by IntelliJ IDEA.
   User: katherine_celeste
   Date: 9/13/16
@@ -26,13 +27,13 @@
 <section id="info">
     <p>
     <h2>Animal Notes</h2>
-    <img src="http://www.freeimages.com/download/file/848cc5f9f3b969cb864a83e305d57151/640x480">
-    <h2><a href="AnimalNote.jsp">Bob</a></h2>
-    <strong>Type:</strong>Cat
+    <img src="../images/AnimalPics/Bob.jpg">
+    <h2><a href="/addOrEditPg?id=${animal.getID()}">${animal.getName()}</a></h2>
+    <strong>Type:</strong>${animal.getType()}
     <br>
-    <strong>Breed:</strong> Tabby
+    <strong>Breed:</strong> ${animal.getBreed()}
     <br>
-    <strong>Description:</strong> Big fat and fuzzy
+    <strong>Description:</strong>${animal.getDescription()}
     </p>
 </section>
 
@@ -42,25 +43,64 @@
             <th>Date</th>
             <th>Note</th>
         </tr>
+
+        <% Animal animal = (Animal) request.getAttribute("animal"); %>
+        <% for(AnimalNotes note : animal.getNotes()){ %>
         <tr>
-            <td>8/29/16</td>
-            <td>Went to visit vet
-                <button class="x">X</button>
+            <td>
+                <%= note.getDate() %>
+            </td>
+            <td>
+                <%= note.getText() %>
+            </td>
+            <td>
+                <%--CREATE DELETENOTE servlet -> DOESNT EXIST YET!!!!!--%>
+                <a href="/deleteNote?widgetId=<%= animal.getID() %>&noteId=<%= note.getID() %>"><img src="images/delete.png" alt="Delete" /></a>
             </td>
         </tr>
-        <tr>
-            <td>8/30/16</td>
-            <td>Only eats filet mignon
-                <button class="x">X</button>
-            </td>
-        </tr>
+        <% } %>
+
+
+        <%--<tr>--%>
+            <%--<td>8/29/16</td>--%>
+            <%--<td>Went to visit vet--%>
+                <%--<button class="x">X</button>--%>
+            <%--</td>--%>
+        <%--</tr>--%>
+        <%--<tr>--%>
+            <%--<td>8/30/16</td>--%>
+            <%--<td>Only eats filet mignon--%>
+                <%--<button class="x">X</button>--%>
+            <%--</td>--%>
+        <%--</tr>--%>
     </table>
 </section>
 
 <section>
+    <form action="/note" method="post">
+
     <label>Add a Note:</label><br>
-    <textarea rows="8">This cat seriously needs a bath. This means we need to buy some chainmail.</textarea><br>
+    <textarea rows="8">${animal.getId()}</textarea><br>
     <button id="addNote" name="button">Add Note</button>
+
+
+
+    <%--<form action="/widgetNotes" method="post">--%>
+
+        <%--<input type="hidden" name="id" value="${widget.getId()}" />--%>
+
+        <%--<div>--%>
+            <%--<label for="note" class="noteLabel">--%>
+                <%--Add a note:--%>
+            <%--</label>--%>
+            <%--<textarea name="note" id="note"></textarea>--%>
+
+        <%--</div>--%>
+
+        <button>Add Note</button>
+    </form>
+
+
 </section>
 
 </html>

@@ -17,9 +17,17 @@ public class Animal {
     private int species = -1;
     private String breed = "";
     private String description = "";
-    private int ID;
+    private int ID ;
     private ArrayList<AnimalNotes> notes;
     private TypeService t;
+
+    public Animal (String name, int typeId, String breed, String description)
+    {
+        this.name = name;
+        this.species = typeId;
+        this.breed = breed;
+        this.description = description;
+    }
 
     public Animal(String name, int species, String breed, String description, int ID, ArrayList<AnimalNotes> notes, TypeService t) {
         this.name = name;
@@ -30,6 +38,7 @@ public class Animal {
         this.notes = notes;
         this.t = t;
     }
+
 
     public Animal() {
         this.ID = -1;
@@ -66,6 +75,10 @@ public class Animal {
 
     public int getSpecies() {
         return species;
+    }
+
+    public String getSpeciesStringFormat(int typeID) throws IOException, SQLException {
+        return t.getType(typeID).substring(0,1).toUpperCase() + t.getType(typeID).substring(1);
     }
 
     public void setBreed(String breed) {

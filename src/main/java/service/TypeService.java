@@ -1,5 +1,7 @@
 package service;
 
+import entity.AnimalNotes;
+import entity.AnimalType;
 import repository.AnimalTypeRepository;
 
 import java.io.IOException;
@@ -19,14 +21,20 @@ public class TypeService {
         this.animalTypeRepository = animalTypeRepository;
     }
 
-    public ArrayList<String> listTypes() throws SQLException {
-        ArrayList<String> types = new ArrayList<>();
+    public ArrayList<AnimalType> listTypes() throws SQLException {
+        ArrayList<AnimalType> types = new ArrayList<>();
 
         ResultSet resultSet = this.animalTypeRepository.listTypes();
-        while (resultSet.next()) {
-            types.add(resultSet.getString("species"));
-        }
 
+        while (resultSet.next()) {
+            AnimalType type = new AnimalType(
+                    resultSet.getInt("animal_type_id"),
+                    resultSet.getString("species")
+
+            );
+
+            types.add(type);
+        }
         return types;
     }
 

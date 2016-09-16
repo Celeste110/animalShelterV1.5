@@ -13,10 +13,17 @@ public class NoteRepository {
         this.conn = DriverManager.getConnection(jdbcUrl);
     }
 
-    // list note
-    public ResultSet listNotes() throws SQLException {
-        Statement stmt = conn.createStatement();
-        return stmt.executeQuery("SELECT * FROM note ORDER BY animal_id");
+    // list notes for a particular animal
+    public ResultSet listNotes(int animalID) throws SQLException {
+
+        PreparedStatement ps = conn.prepareStatement(
+                "SELECT * FROM note WHERE animal_id = ?"
+        );
+
+        ps.setInt(1, animalID);
+
+        return ps.executeQuery();
+
     }
 
     // Creates a new Note and adds it to the list

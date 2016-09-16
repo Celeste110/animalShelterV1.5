@@ -16,6 +16,12 @@ public class AnimalNotes {
         this.noteID = noteID;
     }
 
+    public AnimalNotes (int animalID, String noteText, String date){
+        this.ID = animalID;
+        this.text = noteText;
+        this.date = date;
+    }
+
     public int getNoteID() {
         return noteID;
     }

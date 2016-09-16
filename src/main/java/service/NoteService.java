@@ -22,11 +22,11 @@ public class NoteService {
         noteRepository.createNote(text, num);
     }
 
-    public ArrayList<AnimalNotes> listNotes() {
+    public ArrayList<AnimalNotes> listNotes(int animalID) {
         ArrayList<AnimalNotes> notes = new ArrayList<>();
 
         try {
-            ResultSet resultSet = this.noteRepository.listNotes();
+            ResultSet resultSet = this.noteRepository.listNotes(animalID);
 
             while (resultSet.next()) {
                 AnimalNotes aNote = new AnimalNotes(
