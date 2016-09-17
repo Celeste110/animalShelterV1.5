@@ -24,7 +24,9 @@
         List Animals | <a href="/addOrEditPg"> Add an Animal </a>
     </div>
 
-    <h2 class="pageTitle">Add / Edit an Animal</h2>
+    <h2 class="pageTitle">
+        ${animal.getID() > 0 ? "Edit" : "Add"}
+        an Animal</h2>
     <h4><sup>*</sup>indicates a required field</h4>
 
 </header>
@@ -78,8 +80,9 @@
     <input type="text" name="breed" id="three" value="${animal.getBreed()}">
     <%--<input id="three" type="text">--%>
 
-    <textarea rows="9" name = "description" id="four" value="${animal.getDescription()}"> </textarea>
+    <textarea rows="9" name = "description" id="four" >${animal.getDescription()} </textarea>
 
+    <input type="hidden" name="id" id="five" value="${animal.getID()}">
     <br>
 
     <input for="browse" class="save" type="file">

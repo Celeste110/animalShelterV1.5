@@ -31,6 +31,7 @@
     <input type = "text" name = "name" id="name" value="${name}" placeholder="Name">
 
     <select name = "typeId">
+        <option value="">All Types</option>
         <% for(AnimalType type: (ArrayList<AnimalType>)request.getAttribute("types"))
 
             {%>
@@ -41,7 +42,7 @@
             %>
     </select>
 
-    <input type= "text" name="id" id="id" value="${id}" placeholder="Id">
+    <input type= "text" name="id" id="id" value="" placeholder="Id">
 
     <button name="button">Search</button>
 </menu>
@@ -55,10 +56,10 @@
 
 
     <div class="row">
-        <img src="../images/AnimalPics/Bob.jpg">
+        <img src="../images/AnimalPics/dog_selfie.png">
 
         <p>
-            <h2><a href="/addOrEditPg?id= <%= animal.getID() %>"> <%=animal.getName()%> </a></h2>
+            <h2><a href="/addOrEditPg?id=<%= animal.getID() %>"> <%=animal.getName()%> </a></h2>
             <strong>Type:</strong> <%= animal.getSpeciesStringFormat(animal.getSpecies())%> <br>  <%--MAKE SURE YOU GET SPECIES' string (using the num returned from .getSpecies()!!!!!!--%>
             <strong>Breed:</strong> <%= animal.getBreed()%> <br>
             <strong>Description:</strong> <%= animal.getDescription()%> <br>

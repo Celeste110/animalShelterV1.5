@@ -1,10 +1,20 @@
 html {
-    font-family: Arial;
-    margin-left: 25%;
-    width: 50%;
-    height: 100%;
+    font-family: Helvetica, sans-serif;
+    background-color: aliceblue;
+    /*margin-left: 33%;*/
+    /*width: 50%;*/
+    /*height: 100%;*/
 }
 
+h1  {line-space: 2px;
+    background: darkseagreen;
+    text-align: center;
+    padding-bottom: 1%;
+    width: 100%;
+    font-color: blue;
+    padding-top: 2%;
+
+}
 
 button {
     box-shadow: 3px 3px 3px black;
