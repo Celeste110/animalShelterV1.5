@@ -17,7 +17,7 @@ public class Animal {
     private int species = -1;
     private String breed = "";
     private String description = "";
-    private int ID ;
+    private int ID  = -1;
     private ArrayList<AnimalNotes> notes;
     private TypeService t;
 
@@ -28,6 +28,7 @@ public class Animal {
         this.breed = breed;
         this.description = description;
     }
+
 
     public Animal(String name, int species, String breed, String description, int ID, ArrayList<AnimalNotes> notes, TypeService t) {
         this.name = name;

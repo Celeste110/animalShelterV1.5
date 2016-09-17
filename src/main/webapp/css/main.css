@@ -2,7 +2,8 @@
 /*Remember->Tags have different default formatting. Keep this in mind.*/
 
 html {
-    font-family: Arial;
+    font-family: Helvetica, sans-serif;
+    background-color: aliceblue;
 }
 
 select {
@@ -16,14 +17,23 @@ ul {
     margin: 0;
 }
 
-header, div {
-    margin-left: 25%;
-}
+/*header, div {*/
+    /*margin-left: 33%;*/
+/*}*/
 
 h1 {
-    font-size: xx-large;
-    margin: 0;
+    line-space: 2px;
+    background: darkseagreen;
+    text-align: center;
+    padding-bottom: 1%;
+    width: 100%;
+    font-color: blue;
+    padding-top: 2%;
 }
+/*h1 {*/
+    /*font-size: xx-large;*/
+    /*margin: 0;*/
+/*}*/
 
 h2 {
     font-size: 150%;
@@ -33,7 +43,7 @@ h2 {
 
 input {
     line-height: 10px;
-    border-color: black;
+    border-color: darkblue;
     border-width: 1px;
     border-style: solid;
     margin-right: 1%;
@@ -95,6 +105,9 @@ img {
     max-width: 250px;
 }
 
+a {
+    white-space: normal;
+}
 /**{*/
 /*border: 1px dashed #ff0000;*/
 /*}*/

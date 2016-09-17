@@ -29,7 +29,7 @@
 <section id="info">
     <p>
     <h2>Animal Notes</h2>
-    <img src="../images/AnimalPics/Bob.jpg">
+    <img src="../images/AnimalPics/dog_selfie.png">
     <h2><a href="/addOrEditPg?id=${animal.getID()}"><%=animal.getName()%></a></h2>
     <strong>Type:</strong><%=animal.getSpeciesStringFormat(animal.getSpecies())%>
     <br>

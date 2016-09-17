@@ -32,6 +32,28 @@ public class AnimalsService {
         return typeService;
     }
 
+    public ArrayList<Animal> listAnimals() {
+        ArrayList<Animal> animals = new ArrayList<Animal>();
+
+        try {
+            ResultSet resultSet = this.animalRepository.listAnimal();
+
+            while (resultSet.next()) {
+                Animal anAnimal = new Animal(
+                        resultSet.getString("animal_name"),
+                        resultSet.getInt("animal_type_id"),
+                        resultSet.getString("breed"),
+                        resultSet.getString("description")
+                );
+                animals.add(anAnimal);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return animals;
+    }
+
     public ArrayList<Animal> listAnimals(int animalID) {
         ArrayList<Animal> animals = new ArrayList<Animal>();
 

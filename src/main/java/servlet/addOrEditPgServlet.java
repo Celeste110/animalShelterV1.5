@@ -120,11 +120,10 @@ public class addOrEditPgServlet extends AbstractServlet {
             // if valid (do the work above!!)
             if (valid) {
 
-                // if the id isn't zero we're updating the animal
-                if (id != null) {
+                if(id==-1){
+                    service.createAnimal(animal.getName(), animal.getSpecies(), animal.getBreed(), animal.getDescription());}
+                else{
                     service.modifyAnimal(animal);
-                } else {
-                    service.createAnimal(animal.getName(), animal.getSpecies(), animal.getBreed(), animal.getDescription());
                 }
 
                 // list the animal types we have
