@@ -18,22 +18,24 @@
 <header>
     <h1>Animal Shelter</h1>
 
-    <p class="two_columns"><a href="index.jsp"> List Animals </a>
+    <p class="two_columns"><a href="/"> List Animals </a>
         |
-        <a href="AddOrEditAnimal.jsp"> Add an Animal </a></p>
+        <a href="/addOrEditPg"> Add an Animal </a></p>
 
 </header>
+
+<% Animal animal = (Animal) request.getAttribute("animal"); %>
 
 <section id="info">
     <p>
     <h2>Animal Notes</h2>
     <img src="../images/AnimalPics/Bob.jpg">
-    <h2><a href="/addOrEditPg?id=${animal.getID()}">${animal.getName()}</a></h2>
-    <strong>Type:</strong>${animal.getType()}
+    <h2><a href="/addOrEditPg?id=${animal.getID()}"><%=animal.getName()%></a></h2>
+    <strong>Type:</strong><%=animal.getSpeciesStringFormat(animal.getSpecies())%>
     <br>
-    <strong>Breed:</strong> ${animal.getBreed()}
+    <strong>Breed:</strong> <%=animal.getBreed()%>
     <br>
-    <strong>Description:</strong>${animal.getDescription()}
+    <strong>Description:</strong> <%=animal.getDescription()%>
     </p>
 </section>
 
@@ -44,8 +46,10 @@
             <th>Note</th>
         </tr>
 
-        <% Animal animal = (Animal) request.getAttribute("animal"); %>
-        <% for(AnimalNotes note : animal.getNotes()){ %>
+        <%
+            if(animal.getNotes()!=null)
+            {
+            for(AnimalNotes note : animal.getNotes()){ %>
         <tr>
             <td>
                 <%= note.getDate() %>
@@ -55,10 +59,11 @@
             </td>
             <td>
                 <%--CREATE DELETENOTE servlet -> DOESNT EXIST YET!!!!!--%>
-                <a href="/deleteNote?widgetId=<%= animal.getID() %>&noteId=<%= note.getID() %>"><img src="images/delete.png" alt="Delete" /></a>
+                <%--<a href="/deleteNote?animalId=<%= animal.getID() %>&noteId=<%= note.getID() %>"><img src="images/delete.png" alt="Delete" /></a>--%>
             </td>
         </tr>
-        <% } %>
+
+        <% }} %>
 
 
         <%--<tr>--%>
@@ -79,25 +84,14 @@
 <section>
     <form action="/note" method="post">
 
-    <label>Add a Note:</label><br>
-    <textarea rows="8">${animal.getId()}</textarea><br>
-    <button id="addNote" name="button">Add Note</button>
-
-
-
-    <%--<form action="/widgetNotes" method="post">--%>
-
-        <%--<input type="hidden" name="id" value="${widget.getId()}" />--%>
-
-        <%--<div>--%>
-            <%--<label for="note" class="noteLabel">--%>
-                <%--Add a note:--%>
-            <%--</label>--%>
-            <%--<textarea name="note" id="note"></textarea>--%>
-
-        <%--</div>--%>
-
-        <button>Add Note</button>
+        <%
+            {%>
+            <label>Add a Note:</label><br>
+            <textarea rows="8" name="note"></textarea><br>
+            <button id="addNote" name="button">Add Note</button>
+        <%}
+    %>
+        <%--value="${animal.getText()}--%>
     </form>
 
 

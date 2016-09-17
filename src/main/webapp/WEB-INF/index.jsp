@@ -58,9 +58,9 @@
         <img src="../images/AnimalPics/Bob.jpg">
 
         <p>
-            <h2><a href="/addOrEditPg?id= <%= animal.getID() %>"> <%=animal.getName()%> </a></h2>
-            <strong>Type:</strong> <%= animal.getSpeciesStringFormat(animal.getSpecies())%> <br>  <%--MAKE SURE YOU GET SPECIES' string (using the num returned from .getSpecies()!!!!!!--%>
-            <strong>Breed:</strong> <%= animal.getBreed()%> <br>
+            <h2><a href="/?id=<%=animal.getID()%>"> <%=animal.getName()%> </a></h2>
+            <strong>Type:</strong> <%=animal.getSpeciesStringFormat(animal.getSpecies())%> <br>  <%--MAKE SURE YOU GET SPECIES' string (using the num returned from .getSpecies()!!!!!!--%>
+            <strong>Breed:</strong> <%=animal.getBreed()%><br>
             <strong>Description:</strong> <%= animal.getDescription()%> <br>
             <strong>Notes:</strong> <a href="/note?id=<%= animal.getID() %>"> <%=animal.getNotes().size()%> notes...</a>
          </p>

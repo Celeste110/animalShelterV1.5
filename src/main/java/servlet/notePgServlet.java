@@ -21,11 +21,17 @@ public class notePgServlet extends AbstractServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
       try {
         // get the animal id
-        Integer id = getParameterAsInt(req, "id");
+        String id = getParameterAsString(req, "id");
         req.setAttribute("id", id);
 
-        // get the animal
-        Animal animal = service.getAnimalById(id);
+          // create a blank animal
+          Animal animal = new Animal();
+
+          // if we've specified an id, then get that specific animal
+          if (id != null) {
+              // get a specific animal
+              animal = service.getAnimalById(Integer.parseInt(id));
+          }
 
         req.setAttribute("animal", animal);
 
@@ -33,7 +39,7 @@ public class notePgServlet extends AbstractServlet {
         throw new ServletException("Error showing widget notes", e);
     }
 
-        req.getRequestDispatcher("WEB-INF/note.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/AnimalNote.jsp").forward(req, resp);
 }
 
     @Override
@@ -56,7 +62,7 @@ public class notePgServlet extends AbstractServlet {
             // add the note to the animal
             animal.getNotes().add(note);
 
-            // save the widget
+            // save the animal
             service.modifyAnimal(animal);
 
             resp.sendRedirect("/note?id=" + id);

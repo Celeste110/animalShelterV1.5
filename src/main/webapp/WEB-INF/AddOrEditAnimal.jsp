@@ -21,7 +21,7 @@
     <h1>Animal Shelter</h1>
 
     <div class="two_columns">
-        List Animals | <a href="/addOrEditPg"> Add an Animal </a>
+        <a href="/"> List Animals </a> | <a href="/addOrEditPg"> Add an Animal </a>
     </div>
 
     <h2 class="pageTitle">Add / Edit an Animal</h2>
