@@ -1,5 +1,4 @@
 package servlet;
-
 import creationService.AnimalCreation;
 import service.AnimalsService;
 import servlet.AbstractServlet;
@@ -32,19 +31,26 @@ public class DeleteServlet extends AbstractServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         try {
-            // get the widget id
-            Integer widgetId = getParameterAsInt(req, "widgetId");
+            // get the animal id
+            Integer animalID = getParameterAsInt(req, "id");
 
             // get the note id
             Integer noteId = getParameterAsInt(req, "noteId");
 
-            // delete the note
-            widgetService.deleteNoteById(noteId);
+            // if we've specified an id, then get that specific animal
+            if (animalID != null) {
+                // delete the animal
+                service.removeAnAnimal(animalID);
+            }
 
-            // redirect back to the list of notes
-            resp.sendRedirect("/widgetNotes?id=" + widgetId);
+            if (noteId != null) {
+                //delete the note
+                //service.removeNote(noteId)
+            }
+            req.getRequestDispatcher("WEB-INF/AddOrEditAnimal.jsp").forward(req, resp);
+
         } catch (SQLException e) {
-            throw new ServletException("Couldn't delete a note", e);
+            throw new ServletException("Couldn't delete animal", e);
         }
     }
 }
