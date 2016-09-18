@@ -1,12 +1,13 @@
 html {
     font-family: Helvetica, sans-serif;
     background-color: aliceblue;
-    margin-left: 33%;
+    margin-left: 25%;
     width: 50%;
     height: 100%;
 }
 
-h1  {line-space: 2px;
+h1 {
+    line-space: 2px;
     background: darkseagreen;
     text-align: center;
     padding-bottom: 1%;
@@ -28,13 +29,12 @@ img {
     float: left;
 }
 
-p, h1, h2, header, a {
+p, h2, header, a {
     margin: 0;
     padding: 0;
 }
 
 .two_columns {
-    padding: 0;
     margin-bottom: 1%;
     font-size: 115%;
 }
@@ -47,26 +47,26 @@ p, h1, h2, header, a {
     box-shadow: 3px 3px 3px black;
 }
 
-table {
-    border: 1px solid black;
-    width: 70%;
-    text-align: left;
-    font-weight: normal;
-    border-collapse: collapse;
-}
+/*table {*/
+    /*border: 1px solid black;*/
+    /*width: 70%;*/
+    /*text-align: left;*/
+    /*font-weight: normal;*/
+    /*border-collapse: collapse;*/
+/*}*/
 
-tr td {
-    border-right: 1px solid black;
-}
+/*tr td {*/
+    /*border-right: 1px solid black;*/
+/*}*/
 
-table tr th {
-    line-height: 85%;
-    font-size: 85%;
-    font-weight: normal;
-    width: 5%;
-    background: darkgrey;
-    border-right: 1px solid black;
-}
+/*table tr th {*/
+    /*line-height: normal;*/
+    /*font-size: 85%;*/
+    /*font-weight: normal;*/
+    /*width: auto;*/
+    /*background: darkgrey;*/
+    /*border-right: 1px solid black;*/
+/*}*/
 
 table tr td:nth-child(2) {
     width: 15%;
@@ -76,14 +76,36 @@ table tr:nth-child(even) {
     background-color: lightgrey;
 }
 
-.x {
-    border-radius: 50%;
-    border-color: black;
-    background: red;
-    color: white;
-    float: right;
-    margin-right: 2%;
+table {
+    border-collapse: collapse;
+    margin: 1em 0 1em 0 ;
 }
+table tr td:first-child{
+    white-space: nowrap;
+}
+table tr th:nth-child(2){
+    width: 100%;
+}
+
+th{
+    background: darkgrey;
+}
+
+th, td{
+    margin: 0;
+    border: 1px solid black;
+    padding: 0.25em;
+    text-align: left;
+}
+
+/*.x {*/
+    /*border-radius: 50%;*/
+    /*border-color: black;*/
+    /*background: red;*/
+    /*color: white;*/
+    /*float: right;*/
+    /*margin-right: 2%;*/
+/*}*/
 
 /**{*/
 /*border: 1px dashed #ff0000;*/

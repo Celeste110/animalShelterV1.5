@@ -25,47 +25,51 @@
 
 </header>
 
-<form action = "/" method = "get">
+<form action="/" method="get">
 
-<menu>
-    <input type = "text" name = "name" id="name" value="${name}" placeholder="Name">
+    <menu>
+        <input type="text" name="name" id="name" value="${name}" placeholder="Name">
 
-    <select name = "typeId">
-        <option value="">All Types</option>
-        <% for(AnimalType type: (ArrayList<AnimalType>)request.getAttribute("types"))
+        <select name="typeId">
+            <option value="">All Types</option>
+            <% for (AnimalType type : (ArrayList<AnimalType>) request.getAttribute("types"))
 
             {%>
-                <option value = "<%= type.getAnimal_type_id()%>" <%= request.getAttribute("animal_type_id") != null && type.getAnimal_type_id() == (int)request.getAttribute("animal_type_id") ? "selected='true'" : ""%>>
-                    <%= type.getSpecies()%>
-                </option>
-            <%}
+            <option value="<%= type.getAnimal_type_id()%>" <%= request.getAttribute("animal_type_id") != null && type.getAnimal_type_id() == (int) request.getAttribute("animal_type_id") ? "selected='true'" : ""%>>
+                <%= type.getSpecies()%>
+            </option>
+            <%
+                }
             %>
-    </select>
+        </select>
 
-    <input type= "text" name="id" id="id" value="" placeholder="Id">
+        <input type="text" name="id" id="id" value="" placeholder="Id">
 
-    <button name="button">Search</button>
-</menu>
+        <button name="button">Search</button>
+    </menu>
 
 </form>
 
 
 <!-- main section of my page -->
 <section>
-    <% for(Animal animal : (ArrayList<Animal>)request.getAttribute("animals")) { %>
+    <% for (Animal animal : (ArrayList<Animal>) request.getAttribute("animals")) { %>
 
 
     <div class="row">
         <img src="../images/AnimalPics/dog_selfie.png">
 
         <p>
-            <h2><a href="/addOrEditPg?id=<%=animal.getID()%>"> <%=animal.getName()%> </a></h2>
-            <strong>Type:</strong> <%= animal.getSpeciesStringFormat(animal.getSpecies())%> <br>  <%--MAKE SURE YOU GET SPECIES' string (using the num returned from .getSpecies()!!!!!!--%>
-            <strong>Breed:</strong> <%= animal.getBreed()%> <br>
-            <strong>Description:</strong> <%= animal.getDescription()%> <br>
-            <strong>Notes:</strong> <a href="/note?id=<%= animal.getID()%>"> <%=animal.getNotes().size()%> notes...</a><br>
-            <a href="/delete?id=<%=animal.getID()%>"><img src="../images/AnimalPics/delete_trashcan.jpeg" style="width:50px; height: 50px;"></a>
-         </p>
+        <h2><a href="/addOrEditPg?id=<%=animal.getID()%>"><%=animal.getName()%>
+        </a></h2>
+        <strong>Type:</strong> <%= animal.getSpeciesStringFormat(animal.getSpecies())%>
+        <br> <%--MAKE SURE YOU GET SPECIES' string (using the num returned from .getSpecies()!!!!!!--%>
+        <strong>Breed:</strong> <%= animal.getBreed()%> <br>
+        <strong>Description:</strong> <%= animal.getDescription()%> <br>
+        <strong>Notes:</strong> <a href="/note?id=<%= animal.getID()%>"><%=animal.getNotes().size()%> notes...</a><br>
+        <a href="/delete?id=<%=animal.getID()%>"><img src="../images/AnimalPics/delete_trashcan.jpeg"
+                                                      style="width:50px; height: 50px;"></a>
+        </p>
 
     </div>
 

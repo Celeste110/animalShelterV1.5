@@ -1,12 +1,13 @@
 html {
     font-family: Helvetica, sans-serif;
     background-color: aliceblue;
-    margin-left: 33%;
+    margin-left: 25%;
     width: 50%;
     height: 100%;
 }
 
-h1  {line-space: 2px;
+h1 {
+    line-space: 2px;
     background: darkseagreen;
     text-align: center;
     padding-bottom: 1%;
@@ -26,7 +27,7 @@ section {
     margin-right: 2%;
 }
 
-#column2, #two, #three, #four, .save{
+#column2, #two, #three, #four, .save {
     margin-top: 0.5%;
 }
 
@@ -42,7 +43,7 @@ h4 {
 }
 
 .two_columns {
-    padding: 2px 0 1em 0;
+    padding: 3.5% 0 1em 0;
     margin: 0;
     font-size: 110%;
 }
@@ -81,7 +82,6 @@ select {
     display: block;
     margin-bottom: 5.5%;
 }
-
 
 #save {
     width: 90px;

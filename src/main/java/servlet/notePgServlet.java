@@ -50,26 +50,18 @@ public class notePgServlet extends AbstractServlet {
             Integer id = getParameterAsInt(req, "id");
             req.setAttribute("id", id);
 
-            // get the animal
-            Animal animal = service.getAnimalById(id);
-
             // get the text of the note
             String noteText = getParameterAsString(req, "note");
 
             // make a note
             AnimalNotes note = new AnimalNotes(id, noteText, new java.util.Date().toString());
 
-            // add the note to the animal
-            animal.getNotes().add(note);
-
-            // save the animal
-            service.modifyAnimal(animal);
+            // add the note to the note table
+            service.getNoteService().createNote(noteText, id);
 
             resp.sendRedirect("/note?id=" + id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
-
 }

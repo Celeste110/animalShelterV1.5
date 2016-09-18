@@ -44,6 +44,24 @@ public class NoteRepository {
         // execute the query
         ps.executeUpdate();
     }
+
+    // Removes an animal from the database
+    public void deleteNote(int noteID) throws SQLException {
+
+        // create a prepared statement
+        PreparedStatement ps = conn.prepareStatement(
+
+                "DELETE FROM note " +
+                        "WHERE note_id = ?"
+        );
+
+        // set parameter values
+        ps.setInt(1, noteID);
+
+        // execute the query
+        ps.executeUpdate();
+
+    }
 }
 
 

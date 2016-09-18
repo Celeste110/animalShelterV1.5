@@ -22,6 +22,10 @@ public class NoteService {
         noteRepository.createNote(text, num);
     }
 
+    public void deleteNote(int noteID) throws IOException, SQLException {
+        noteRepository.deleteNote(noteID);
+    }
+
     public ArrayList<AnimalNotes> listNotes(int animalID) {
         ArrayList<AnimalNotes> notes = new ArrayList<>();
 

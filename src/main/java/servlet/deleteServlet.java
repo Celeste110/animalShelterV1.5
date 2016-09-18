@@ -1,7 +1,9 @@
 package servlet;
+
 import creationService.AnimalCreation;
 import service.AnimalsService;
 import servlet.AbstractServlet;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +25,7 @@ public class deleteServlet extends AbstractServlet {
             // get our widget service
             this.service = AnimalCreation.getAnimalsService();
         } catch (ClassNotFoundException | SQLException | IOException e) {
-            throw new ServletException("Something went wrong initializing servlet" + this.getClass().getCanonicalName() , e);
+            throw new ServletException("Something went wrong initializing servlet" + this.getClass().getCanonicalName(), e);
         }
     }
 
@@ -37,17 +39,17 @@ public class deleteServlet extends AbstractServlet {
             // get the note id
             Integer noteId = getParameterAsInt(req, "noteId");
 
+            if (noteId != null) {
+                //delete the note
+                service.getNoteService().deleteNote(noteId);
+            }
             // if we've specified an id, then get that specific animal
-            if (animalID != null) {
+            else {
                 // delete the animal
                 service.removeAnAnimal(animalID);
             }
 
-            if (noteId != null) {
-                //delete the note
-                //service.removeNote(noteId)
-            }
-          //  req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp);
+            resp.sendRedirect("/");
 
         } catch (SQLException e) {
             throw new ServletException("Couldn't delete animal", e);
@@ -55,5 +57,7 @@ public class deleteServlet extends AbstractServlet {
     }
 }
 
-/** Code used to attach a delete button and function to animal and/or note:
- * <a href="/deleteNote?widgetId=<%= widget.getId() %>&noteId=<%= note.getId() %>"><img src="images/delete.png" alt="Delete" /></a> */
+/**
+ * Code used to attach a delete button and function to animal and/or note:
+ * <a href="/deleteNote?widgetId=<%= widget.getId() %>&noteId=<%= note.getId() %>"><img src="images/delete.png" alt="Delete" /></a>
+ */
