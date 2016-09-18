@@ -45,7 +45,7 @@ public class NoteRepository {
         ps.executeUpdate();
     }
 
-    // Removes an animal from the database
+    // Removes animal from the database
     public void deleteNote(int noteID) throws SQLException {
 
         // create a prepared statement

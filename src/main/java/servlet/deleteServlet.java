@@ -43,7 +43,7 @@ public class deleteServlet extends AbstractServlet {
                 //delete the note
                 service.getNoteService().deleteNote(noteId);
             }
-            // if we've specified an id, then get that specific animal
+            // if we've specified an id, get that specific animal
             else {
                 // delete the animal
                 service.removeAnAnimal(animalID);

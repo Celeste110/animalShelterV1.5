@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Created by katherine_celeste on 8/31/16.
+ * Created by katherine_celeste 8/31/16.
  */
 public class NoteService {
     private NoteRepository noteRepository;
