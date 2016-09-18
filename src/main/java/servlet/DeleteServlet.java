@@ -54,3 +54,6 @@ public class DeleteServlet extends AbstractServlet {
         }
     }
 }
+
+/** Code used to attach a delete button and function to animal and/or note:
+ * <a href="/deleteNote?widgetId=<%= widget.getId() %>&noteId=<%= note.getId() %>"><img src="images/delete.png" alt="Delete" /></a> */
